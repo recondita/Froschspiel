@@ -3,8 +3,10 @@ package gui;
 
 public class GUI{
 
-	public GUI() {
-		// TODO Auto-generated constructor stub
+	public final int xLength,yLength;
+	public GUI(int xLength, int yLength) {
+		this.xLength=xLength;
+		this.yLength=yLength;
 	}
 
 }
