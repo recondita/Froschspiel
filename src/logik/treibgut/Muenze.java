@@ -1,5 +1,7 @@
 package logik.treibgut;
 
+import logik.Steuerung;
+
 public class Muenze extends Treibgut {
 
 	private boolean aGeholt = false;
@@ -9,7 +11,7 @@ public class Muenze extends Treibgut {
 	}
 
 	public void treiben() {
-		super.aX++;
+		super.aX=(super.aX+1)%Steuerung.X_LENGTH;
 	}
 
 	public boolean gibGeholt() {
