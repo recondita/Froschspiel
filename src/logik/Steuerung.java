@@ -1,5 +1,7 @@
 package logik;
 
+import gui.GUI;
+
 public class Steuerung {
 
 	private int aVersuche;
@@ -12,11 +14,11 @@ public class Steuerung {
 	public final static int Y_LENGTH=10;
 	
 	public Steuerung() {
-		// TODO Auto-generated constructor stub
+		new GUI(X_LENGTH,Y_LENGTH);
 	}
 
 	public void main(String[] args)
 	{
-		
+		new Steuerung();
 	}
 }
