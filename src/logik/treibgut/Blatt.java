@@ -1,9 +1,15 @@
 package logik.treibgut;
 
-public class Blatt {
+import logik.Steuerung;
 
-	public Blatt() {
-		// TODO Auto-generated constructor stub
+public class Blatt extends Treibgut{
+
+	public Blatt(int pX, int pY) {
+		super(pX,pY);
 	}
-
+	
+	public void treiben()
+	{
+		super.aX=(super.aX>0?super.aX:Steuerung.X_LENGTH)-1;
+	}
 }
