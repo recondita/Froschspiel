@@ -36,6 +36,7 @@ public class GUI {
 		// TODO
 	}
 
+	//aus der aufgabe
 	public void zeichneFrosch(int pX, int pY) {
 		aAktXFrosch=pX;
 		aAktYFrosch=pY;
@@ -47,5 +48,10 @@ public class GUI {
 			// TODO: gui Kram
 			aAktXFrosch = aAktYFrosch = -1;
 		}
+	}
+	
+	public void gedruecktTaste(int taste)
+	{
+		//TODO gedrueckteTaste ind Steuerung aufrufen
 	}
 }
