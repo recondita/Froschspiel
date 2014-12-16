@@ -1,5 +1,7 @@
 package gui;
 
+import gui.oberflaeche.Fenster;
+
 
 public class GUI{
 
@@ -12,6 +14,7 @@ public class GUI{
 	public GUI(int xLength, int yLength) {
 		this.xLength=xLength;
 		this.yLength=yLength;
+		new Fenster(this);
 	}
 
 	public void clickNeuesSpiel()
@@ -21,7 +24,7 @@ public class GUI{
 	
 	public void clickSpielBeenden()
 	{
-		//TODO
+		System.exit(0);
 	}
 	
 	public void loescheAlles()
