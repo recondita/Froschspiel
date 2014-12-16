@@ -3,6 +3,7 @@ package logik;
 import java.util.Random;
 
 import logik.treibgut.Blatt;
+import logik.treibgut.Frosch;
 import logik.treibgut.Muenze;
 import gui.GUI;
 
@@ -16,15 +17,16 @@ public class Steuerung {
 	public final static int ANZ_BLAETTER = 120;
 
 	// gegeben
-	private int aVersuche = INIT_VERSUCHE;
-	private int aMuenzzahl = ANZ_MUENZEN;
-	private int aBlattzahl = ANZ_BLAETTER;
+	private int aVersuche;
+	private int aMuenzzahl;
+	private int aBlattzahl;
 	private int aZustand;
 
 	// aus den aufgaben
 	private GUI dieGUI;
 	private Blatt[] dasBlatt = new Blatt[aBlattzahl];
 	private Muenze[] dieMuenze = new Muenze[aMuenzzahl];
+	private Frosch derFrosch;
 
 	// Optional/Fuer gegebene Methode
 	private Random ran = new Random();
@@ -32,6 +34,7 @@ public class Steuerung {
 	// Aus Klassendiagram gegeben
 	public Steuerung(GUI pGUI) {
 		this.dieGUI = pGUI;
+		neuesSpiel();
 	}
 
 	/**
@@ -88,6 +91,16 @@ public class Steuerung {
 		}
 	}
 
+	public void neuesSpiel()
+	{
+		aVersuche = INIT_VERSUCHE;
+		aMuenzzahl = ANZ_MUENZEN;
+		aBlattzahl = ANZ_BLAETTER;
+		dieGUI.loescheAlles();
+		verteileTreibgut();
+		derFrosch=new Frosch(X_LENGTH/2,Y_LENGTH-1);
+		//TODO: der GUI noch irgend wie sagen das es einen Frosch gibt
+	}
 	// zum starten
 	public void main(String[] args) {
 		new Steuerung(new GUI(X_LENGTH, Y_LENGTH));
