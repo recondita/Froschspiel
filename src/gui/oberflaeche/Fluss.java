@@ -1,7 +1,6 @@
 package gui.oberflaeche;
 
 import java.awt.Canvas;
-import java.awt.Image;
 
 public class Fluss extends Canvas {
 	private static final long serialVersionUID = -384832973494854308L;
@@ -17,16 +16,6 @@ public class Fluss extends Canvas {
 	}
 	
 	public void zeichneBlatt(int x,int y)
-	{
-		
-	}
-	
-	private void zeichneRand(int x, int y)
-	{
-		
-	}
-	
-	private void zeichne(int x,int y,Image img)
 	{
 		
 	}
