@@ -99,7 +99,7 @@ public class Steuerung {
 		dieGUI.loescheAlles();
 		verteileTreibgut();
 		derFrosch=new Frosch(X_LENGTH/2,Y_LENGTH-1);
-		//TODO: der GUI noch irgend wie sagen das es einen Frosch gibt
+		dieGUI.zeichneFrosch(derFrosch.gibX(), derFrosch.giby());
 	}
 	// zum starten
 	public void main(String[] args) {

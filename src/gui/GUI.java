@@ -37,7 +37,6 @@ public class GUI {
 	}
 
 	public void zeichneFrosch(int pX, int pY) {
-		loescheFrosch();
 		aAktXFrosch=pX;
 		aAktYFrosch=pY;
 		//TODO GUI Kram
