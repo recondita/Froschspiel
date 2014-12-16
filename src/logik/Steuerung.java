@@ -105,6 +105,7 @@ public class Steuerung {
 	
 	public void bestimmeZustand(int x, int y)
 	{
+		int dieMuenzZahl=derFrosch.gibAnzahlMuenzen();
 		//TODO
 	}
 	
@@ -114,6 +115,7 @@ public class Steuerung {
 	 */
 	public void gedruecktTaste(int richtung)
 	{
+		dieGUI.loescheFrosch();
 		derFrosch.springen(richtung);
 		int x=derFrosch.gibX();
 		int y=derFrosch.gibY();
