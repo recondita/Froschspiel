@@ -15,7 +15,7 @@ public class Treibgut {
 		return aX;
 	}
 	
-	public int giby()
+	public int gibY()
 	{
 		return aY;
 	}

@@ -99,11 +99,16 @@ public class Steuerung {
 		dieGUI.loescheAlles();
 		verteileTreibgut();
 		derFrosch=new Frosch(X_LENGTH/2,Y_LENGTH-1);
-		dieGUI.zeichneFrosch(derFrosch.gibX(), derFrosch.giby());
+		dieGUI.zeichneFrosch(derFrosch.gibX(), derFrosch.gibY());
 	}
 	// zum starten
 	public void main(String[] args) {
 		new Steuerung(new GUI(X_LENGTH, Y_LENGTH));
+	}
+	
+	public void bestimmeZustand(int pX, int pY)
+	{
+		//TODO
 	}
 	
 	/**
@@ -113,5 +118,8 @@ public class Steuerung {
 	public void gedruecktTaste(int richtung)
 	{
 		derFrosch.springen(richtung);
+		int x=derFrosch.gibX();
+		int y=derFrosch.gibY();
+		bestimmeZustand(x,y);
 	}
 }
