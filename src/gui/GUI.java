@@ -44,7 +44,7 @@ public class GUI {
 	}
 
 	public void loescheFrosch() {
-		if (aAktXFrosch >= 0&&aAktXFrosch>=0) {
+		if (aAktXFrosch >= 0&&aAktYFrosch>=0) {
 			// TODO: gui Kram
 			aAktXFrosch = aAktYFrosch = -1;
 		}
