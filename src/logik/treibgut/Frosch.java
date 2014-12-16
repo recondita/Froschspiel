@@ -10,5 +10,17 @@ public class Frosch extends Treibgut{
 	public Frosch(int pX, int pY) {
 		super(pX,pY);
 	}
-
+	
+	public void springen(int richtung)
+	{
+		int diff=1-richtung&2;
+		if((richtung&1)==0)
+		{
+			aX=+diff;
+		}
+		else
+		{
+			aY=+diff;
+		}
+	}
 }

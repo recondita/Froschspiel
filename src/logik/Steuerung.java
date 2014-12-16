@@ -105,4 +105,13 @@ public class Steuerung {
 	public void main(String[] args) {
 		new Steuerung(new GUI(X_LENGTH, Y_LENGTH));
 	}
+	
+	/**
+	 * 
+	 * @param richtung 0=rechts, 1=zurueck, 2=links, 3=vor //glaube ich...
+	 */
+	public void gedruecktTaste(int richtung)
+	{
+		derFrosch.springen(richtung);
+	}
 }
