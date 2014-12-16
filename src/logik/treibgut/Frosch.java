@@ -1,12 +1,12 @@
 package logik.treibgut;
 
-public class Frosch {
-
+public class Frosch extends Treibgut{
+//Diese Vererbung ist Schwachsinn
 	private int aVersuche;
 	private int aMuenzzahl;
 	
-	public Frosch() {
-		// TODO Auto-generated constructor stub
+	public Frosch(int pX, int pY) {
+		super(pX,pY);
 	}
 
 }
