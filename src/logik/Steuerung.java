@@ -17,9 +17,9 @@ public class Steuerung {
 	public final static int ANZ_BLAETTER = 120;
 
 	// gegeben
-	private int aVersuche;
-	private int aMuenzzahl;
-	private int aBlattzahl;
+	private int aVersuche=INIT_VERSUCHE;
+	private int aMuenzzahl=ANZ_MUENZEN;
+	private int aBlattzahl=ANZ_BLAETTER;
 	private int aZustand;
 
 	// aus den aufgaben
@@ -93,9 +93,6 @@ public class Steuerung {
 
 	public void neuesSpiel()
 	{
-		aVersuche = INIT_VERSUCHE;
-		aMuenzzahl = ANZ_MUENZEN;
-		aBlattzahl = ANZ_BLAETTER;
 		dieGUI.loescheAlles();
 		verteileTreibgut();
 		derFrosch=new Frosch(X_LENGTH/2,Y_LENGTH-1);
@@ -106,7 +103,7 @@ public class Steuerung {
 		new Steuerung(new GUI(X_LENGTH, Y_LENGTH));
 	}
 	
-	public void bestimmeZustand(int pX, int pY)
+	public void bestimmeZustand(int x, int y)
 	{
 		//TODO
 	}

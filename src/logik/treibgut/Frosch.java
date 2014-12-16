@@ -23,4 +23,9 @@ public class Frosch extends Treibgut{
 			aY=+diff;
 		}
 	}
+	
+	public void aufStartPos()
+	{
+		aX=Steuerung.Y_LENGTH-1;
+	}
 }
