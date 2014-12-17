@@ -2,8 +2,19 @@ package logik;
 
 public class Zeitgeber {
 
-	public Zeitgeber() {
-		// TODO Auto-generated constructor stub
+	private Steuerung dieSteuerung;
+	public Zeitgeber(Steuerung pSteuerung) {
+		this.dieSteuerung=pSteuerung;
+	}
+	
+	public void start()
+	{
+		//TODO
+	}
+	
+	public void stop()
+	{
+		//TODO
 	}
 
 }

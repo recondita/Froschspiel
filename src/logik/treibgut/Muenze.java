@@ -17,4 +17,10 @@ public class Muenze extends Treibgut {
 	public boolean gibGeholt() {
 		return this.aGeholt;
 	}
+	
+	//aus Aufgabe
+	public void holen()
+	{
+		aGeholt=true;
+	}
 }

@@ -34,4 +34,19 @@ public class Frosch extends Treibgut{
 	{
 		return aMuenzzahl;
 	}
+	
+	public void incMuenzZahl()
+	{
+		aMuenzzahl++;
+	}
+	
+	public void decVersuche()
+	{
+		aVersuche--;
+	}
+	
+	public int gibAnzahlVersuche()
+	{
+		return aVersuche;
+	}
 }

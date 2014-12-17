@@ -18,15 +18,16 @@ public class Steuerung {
 
 	// gegeben
 	private int aVersuche=INIT_VERSUCHE;
-	private int aMuenzzahl=ANZ_MUENZEN;
+	private int aMuenzZahl=ANZ_MUENZEN;
 	private int aBlattzahl=ANZ_BLAETTER;
 	private int aZustand;
 
 	// aus den aufgaben
 	private GUI dieGUI;
 	private Blatt[] dasBlatt = new Blatt[aBlattzahl];
-	private Muenze[] dieMuenze = new Muenze[aMuenzzahl];
+	private Muenze[] dieMuenze = new Muenze[aMuenzZahl];
 	private Frosch derFrosch;
+	private Zeitgeber derZeitgeber;
 
 	// Optional/Fuer gegebene Methode
 	private Random ran = new Random();
@@ -35,6 +36,7 @@ public class Steuerung {
 	public Steuerung(GUI pGUI) {
 		this.dieGUI = pGUI;
 		neuesSpiel();
+		this.derZeitgeber=new Zeitgeber(this);
 	}
 
 	/**
@@ -76,7 +78,7 @@ public class Steuerung {
 		}
 		
 		//soooo redundant
-		for (int i = 0; i < aMuenzzahl; i++) {
+		for (int i = 0; i < aMuenzZahl; i++) {
 			while (belegt) {
 				x = gibZufallsGZ(0, X_LENGTH);
 				y = gibZufallsGZ(1, Y_LENGTH - 1);
@@ -97,6 +99,7 @@ public class Steuerung {
 		verteileTreibgut();
 		derFrosch=new Frosch(X_LENGTH/2,Y_LENGTH-1);
 		dieGUI.zeichneFrosch(derFrosch.gibX(), derFrosch.gibY());
+		derZeitgeber.start();
 	}
 	// zum starten
 	public void main(String[] args) {
@@ -106,6 +109,42 @@ public class Steuerung {
 	public void bestimmeZustand(int x, int y)
 	{
 		int dieMuenzZahl=derFrosch.gibAnzahlMuenzen();
+		if(y==0&&dieMuenzZahl==aMuenzZahl)
+		{			
+			derFrosch.aufStartPos();
+			aZustand=4;
+		}
+
+		if(y>0)//y<Y_LENGTH
+		{
+			boolean aufBlatt=false;
+			boolean aufMuenze=false;
+			
+			for(int i=0; i<aBlattzahl&&!aufBlatt; i++)
+			{
+				aufBlatt=dasBlatt[i].hatGleichesXY(x, y);
+				if(aufBlatt)
+					aZustand=1;
+			}
+			for(int i=0; i<aMuenzZahl&&!aufMuenze;i++)
+			{
+				aufMuenze=dieMuenze[i].hatGleichesXY(x, y);
+				aufMuenze=aufMuenze&&!dieMuenze[i].gibGeholt(); //fehlt im Squenzdiagram
+				if(aufMuenze)
+				{
+					aZustand=3;
+					dieMuenze[i].holen();
+					derFrosch.incMuenzZahl();
+				}
+			}
+			if(!aufBlatt&&!aufMuenze)
+			{
+				aZustand=3;
+				derFrosch.decVersuche();
+				derFrosch.aufStartPos();
+			}
+			dieGUI.zeichneFrosch(derFrosch.gibX(),derFrosch.gibY());
+		}
 		//TODO
 	}
 	
